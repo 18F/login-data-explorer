@@ -1,0 +1,11 @@
+<div class="col-xs-6">
+<h2>Get events for email address</h2>
+<p>Enter the user's email address below:</p>
+<%= form_tag('/email_fingerprint') do -%>
+  <div class="form-group">
+    <%= label_tag 'email' %>
+    <%= email_field_tag 'email', nil, class: 'form-control' %>
+  </div>
+  <div><%= submit_tag 'Submit', class: 'btn btn-primary' %></div>
+<% end %>
+</div>
