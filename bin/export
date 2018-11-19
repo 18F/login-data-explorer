@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+echo "===> Exporting login-data-explorer_development DB into data/login_data_explorer_development.dump"
+pg_dump -Fc --no-acl --no-owner -h localhost login-data-explorer_development > data/login_data_explorer_development.dump
+echo "===> Done exporting the DB."
