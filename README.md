@@ -49,11 +49,28 @@ Note that this is a Rails 5.2 app that uses the new
 To be able to convert an email address to an `email_fingerprint`, the app needs
 access to the `hmac_fingerprinter_key`. To make it easy to test locally, it is
 set by default to the same value as the one in the `development` section of
-`identity-idp`'s `application.yml` . Once the app is deployed, you'll need to
+`identity-idp`'s `application.yml` . Before the app is deployed, we'll need to
 run `rails credentials:edit`, then update `hmac_fingerprinter_key` to the same
 value as the one in the target `identity-idp` server. You can only decrypt the
-credentials if you have the correct `master.key`, which is `.gitignored`. You
-can retrieve it from our S3 secrets bucket.
+credentials if you have the correct `config/master.key`, which is `.gitignored`.
+
+Rotation of `master.key` is done as follows:
+1. View the contents of the credentials file:
+```console
+rails credentials:show
+```
+2. Copy the contents
+
+3. Move both `config/credentials.yml.enc` and `config/master.key` away from the
+repo
+
+4. Generate a new credentials file:
+```console
+rails credentials:edit
+```
+This will also automatically create a new `master.key`
+
+5. Paste the contents into the new file and save it.
 
 ## Running the app
 ```console
