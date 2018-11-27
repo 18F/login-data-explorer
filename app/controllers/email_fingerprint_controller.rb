@@ -12,7 +12,7 @@ class EmailFingerprintController < ApplicationController
 
   def fingerprint_for(email)
     digest = OpenSSL::Digest::SHA256.new
-    key = Rails.application.credentials.hmac_fingerprinter_key
+    key = Figaro.env.hmac_fingerprinter_key
     OpenSSL::HMAC.hexdigest(digest, key, email)
   end
 end

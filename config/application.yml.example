@@ -1,0 +1,14 @@
+# This file is used by the Figaro gem: https://github.com/laserlemon/figaro
+
+development:
+  hmac_fingerprinter_key: 'a2c813d4dca919340866ba58063e4072adc459b767a74cf2666d5c1eef3861db26708e7437abde1755eb24f4034386b0fea1850a1cb7e56bff8fae3cc6ade96c'
+  idp_db_url: 'postgres:///upaya_development'
+  secret_key_base: 'development_secret_key_base'
+production:
+  hmac_fingerprinter_key: 'changeme'
+  idp_db_url: 'postgres:///upaya_production'
+  secret_key_base: 'changeme'
+test:
+  hmac_fingerprinter_key: 'test_hmac_secret'
+  idp_db_url: 'postgres:///upaya_test'
+  secret_key_base: 'test_secret_key_base'
