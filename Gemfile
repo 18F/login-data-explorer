@@ -8,13 +8,15 @@ gem 'activerecord', '~> 5.2.1'
 gem 'activerecord5-redshift-adapter'
 gem 'blazer'
 gem 'figaro'
+gem 'omniauth_login_dot_gov', git: 'git@github.com:18F/omniauth_login_dot_gov.git'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'railties', '~> 5.2.1'
 gem 'sass-rails', '~> 5.0'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do
@@ -23,4 +25,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'webmock'
 end
