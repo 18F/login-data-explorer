@@ -11,6 +11,15 @@
 
   <body>
     <div class='container'>
+      <% if admin_signed_in? %>
+        <%= button_to 'Sign out', auth_sign_out_path, method: :delete %>
+      <% end %>
+      <% if notice.present? %>
+        <p class="alert alert-primary"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert alert-warning"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>

@@ -7,6 +7,7 @@ gem 'actionmailer', '~> 5.2.1'
 gem 'activerecord', '~> 5.2.1'
 gem 'activerecord5-redshift-adapter'
 gem 'blazer'
+gem 'devise'
 gem 'figaro'
 gem 'omniauth_login_dot_gov', git: 'git@github.com:18F/omniauth_login_dot_gov.git'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -28,6 +29,8 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'webmock'
 end

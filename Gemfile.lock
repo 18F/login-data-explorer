@@ -52,6 +52,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     aes_key_wrap (1.0.1)
     arel (9.0.0)
+    bcrypt (3.1.12)
     bindata (2.4.4)
     bindex (0.5.0)
     blazer (1.9.0)
@@ -64,15 +65,34 @@ GEM
       rainbow
       thor
     byebug (10.0.2)
+    capybara (3.12.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.2)
+      xpath (~> 3.2)
     chartkick (3.0.1)
     coderay (1.1.2)
     concurrent-ruby (1.1.3)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
+    devise (4.5.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.3)
     errbase (0.1.1)
     erubi (1.7.1)
+    factory_bot (4.11.1)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
@@ -82,7 +102,7 @@ GEM
       activesupport (>= 4.2.0)
     hashdiff (0.3.7)
     hashie (3.5.7)
-    i18n (1.1.1)
+    i18n (1.2.0)
       concurrent-ruby (~> 1.0)
     json-jwt (1.9.4)
       activesupport
@@ -109,6 +129,7 @@ GEM
     omniauth (1.8.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
+    orm_adapter (0.5.0)
     pg (1.1.3)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -136,6 +157,10 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    regexp_parser (1.3.0)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -185,6 +210,8 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -194,6 +221,8 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -205,6 +234,9 @@ DEPENDENCIES
   blazer
   bummr
   byebug
+  capybara
+  devise
+  factory_bot_rails
   figaro
   listen (>= 3.0.5, < 3.2)
   omniauth_login_dot_gov!

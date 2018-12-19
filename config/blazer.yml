@@ -51,6 +51,9 @@ data_sources:
 # create audits
 audit: true
 
+# Add a before action
+before_action_method: 'authenticate_admin!'
+
 # change the time zone
 time_zone: "Eastern Time (US & Canada)"
 
