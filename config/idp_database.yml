@@ -1,0 +1,38 @@
+postgresql: &postgresql
+  adapter: postgresql
+  encoding: utf8
+  database: upaya_<%= Rails.env %>
+  port: 5432
+  username: <%= ENV['DOCKER_DB_USER'] %>
+
+defaults: &defaults
+  host: <%= ENV['DOCKER_DB_HOST'] || 'localhost' %>
+  pool: 5
+  <<: *postgresql
+  # timeout settings
+  timeout: 5000
+  reconnect: true
+  connect_timeout: 2
+  keepalives_idle: 10
+  keepalives_interval: 10
+  keepalives_count: 2
+  checkout_timeout: 5
+  reaping_frequency: 10
+  variables:
+    statement_timeout: 5000
+
+development:
+  <<: *defaults
+
+test:
+  adapter: postgresql
+  database: login-data-explorer-idp_test
+  port: 5432
+  pool: 10
+  checkout_timeout: 10
+
+production:
+  <<: *defaults
+  database: upaya_production
+  username: upaya
+  password: <%= ENV['LOGIN-IDP_DATABASE_PASSWORD'] %>

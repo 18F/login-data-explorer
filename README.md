@@ -86,6 +86,23 @@ http://localhost:8080/blazer/
 You should see a few queries already created, such as `User Counts` and
 `Events for specific user`.
 
+## Running the tests
+
+The test suite uses rspec.
+
+The app needs a dummy IDP database in addition to a test application database.
+To setup the databases, run the following rake task:
+
+```
+rake db:test:prepare && rake idp:db:test:prepare
+```
+
+One the test database is setup run the tests with the following:
+
+```
+bundle exec rspec
+```
+
 ## Sharing queries with the team
 If you add queries to the app and want other folks to see them when they run
 the app locally, you can use the `bin/export` script, which will save the

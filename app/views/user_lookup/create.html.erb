@@ -1,0 +1,33 @@
+<h2>Email Addresses:</h2>
+<ul>
+  <% @decorated_user.email_addresses.each do |email_address| %>
+    <li>
+      <%= email_address.email %> |
+      <small><%= email_address.confirmed? ? 'Confirmed' : 'Not confirmed' %></small>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Phone numbers:</h2>
+<ul>
+  <% @decorated_user.phone_configurations.each do |phone_configuration| %>
+    <li>
+      <%= phone_configuration.phone %> |
+      <small><%= phone_configuration.confirmed? ? 'Confirmed' : 'Not confirmed' %></small> |
+      <small><%= phone_configuration.mfa_enabled? ? 'Enabled' : 'Not enabled' %></small>
+    </li>
+  <% end %>
+</ul>
+
+<h2>TOTP</h2>
+<p><%= @decorated_user.totp_enabled? ? 'Enabled' : 'Not enabled' %>
+
+<h2>Webauthn Devices</h2>
+<ul>
+  <% @decorated_user.webauthn_configurations.each do |webauthn_configuration| %>
+    <li><%= webauthn_configuration.name %></li>
+  <% end %>
+</ul>
+
+<h2>PIV/CAC</h2>
+<p><%= @decorated_user.piv_cac_enabled? ? 'Enabled' : 'Not enabled' %>

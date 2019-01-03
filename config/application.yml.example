@@ -1,6 +1,7 @@
 # This file is used by the Figaro gem: https://github.com/laserlemon/figaro
 
 development:
+  attribute_encryption_key: '2086dfbd15f5b0c584f3664422a1d340'
   base_url: http://localhost:8080/
   hmac_fingerprinter_key: 'a2c813d4dca919340866ba58063e4072adc459b767a74cf2666d5c1eef3861db26708e7437abde1755eb24f4034386b0fea1850a1cb7e56bff8fae3cc6ade96c'
   idp_db_url: 'postgres:///upaya_development'
@@ -10,6 +11,7 @@ development:
   oidc_idp_base_url: http://localhost:3000
   secret_key_base: 'development_secret_key_base'
 production:
+  attribute_encryption_key: 'changeme'
   base_url: https://admin.login.gov/
   hmac_fingerprinter_key: 'changeme'
   idp_db_url: 'postgres:///upaya_production'
@@ -19,6 +21,7 @@ production:
   oidc_idp_base_url: https://secure.login.gov
   secret_key_base: 'changeme'
 test:
+  attribute_encryption_key: 'test__attribute__encryption__key'
   base_url: https://example.gov/
   hmac_fingerprinter_key: 'test_hmac_secret'
   idp_db_url: 'postgres:///upaya_test'
