@@ -1,2 +1,9 @@
-<h2>Sign in to continue</h2>
-<%= link_to 'Sign in', '/auth/logindotgov', class: 'btn btn-primary', role: 'button' %>
+<% if admin_signed_in? %>
+  <ul>
+    <li><%= link_to "Blazer", blazer_url %></li>
+    <li><%= link_to "User lookup", user_lookup_url %></li>
+  </ul>
+<% else %>
+  <p>Sign in to continue</p>
+  <%= link_to 'Sign in', '/auth/logindotgov', class: 'btn btn-primary', role: 'button' %>
+<% end %>

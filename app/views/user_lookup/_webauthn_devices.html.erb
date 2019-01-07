@@ -1,0 +1,8 @@
+<table class="table table-striped">
+  <tr>
+    <th>Device name</th>
+  </tr>
+  <% @decorated_user.webauthn_configurations.each do |webauthn_configuration| %>
+    <tr><td><%= webauthn_configuration.name %></td></tr>
+  <% end %>
+</table>

@@ -1,33 +1,26 @@
-<h2>Email Addresses:</h2>
-<ul>
-  <% @decorated_user.email_addresses.each do |email_address| %>
-    <li>
-      <%= email_address.email %> |
-      <small><%= email_address.confirmed? ? 'Confirmed' : 'Not confirmed' %></small>
-    </li>
+<h2 class='h3'>Email addresses:</h2>
+<%= render 'email_addresses' %>
+
+<h2 class='h3'>Phone numbers:</h2>
+<%= render 'phone_numbers' %>
+
+<h2 class='h3'>Webauthn devices:</h2>
+<%= render 'webauthn_devices' %>
+
+<h2 class='h3'>TOTP:</h2>
+<p class='h4'>
+  <% if @decorated_user.totp_enabled? %>
+    <span class="label label-success">Enabled</span>
+  <% else %>
+    <span class="label label-warning">Not enabled</span>
   <% end %>
-</ul>
+</p>
 
-<h2>Phone numbers:</h2>
-<ul>
-  <% @decorated_user.phone_configurations.each do |phone_configuration| %>
-    <li>
-      <%= phone_configuration.phone %> |
-      <small><%= phone_configuration.confirmed? ? 'Confirmed' : 'Not confirmed' %></small> |
-      <small><%= phone_configuration.mfa_enabled? ? 'Enabled' : 'Not enabled' %></small>
-    </li>
+<h2 class='h3'>PIV/CAC:</h2>
+<p class='h4'>
+  <% if @decorated_user.piv_cac_enabled? %>
+    <span class="label label-success">Enabled</span>
+  <% else %>
+    <span class="label label-warning">Not enabled</span>
   <% end %>
-</ul>
-
-<h2>TOTP</h2>
-<p><%= @decorated_user.totp_enabled? ? 'Enabled' : 'Not enabled' %>
-
-<h2>Webauthn Devices</h2>
-<ul>
-  <% @decorated_user.webauthn_configurations.each do |webauthn_configuration| %>
-    <li><%= webauthn_configuration.name %></li>
-  <% end %>
-</ul>
-
-<h2>PIV/CAC</h2>
-<p><%= @decorated_user.piv_cac_enabled? ? 'Enabled' : 'Not enabled' %>
+</p>

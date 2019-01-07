@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <tr>
+    <th>Phone number</th>
+    <th>Confirmed</th>
+    <th>Enabled</th>
+  </tr>
+  <% @decorated_user.phone_configurations.each do |phone_configuration| %>
+    <tr>
+      <td><%= phone_configuration.phone %></td>
+      <td>
+        <% if phone_configuration.confirmed? %>
+          <span class="label label-success">Confirmed</span>
+        <% else %>
+          <span class="label label-warning">Not confirmed</span>
+        <% end %>
+      </td>
+      <td>
+        <% if phone_configuration.mfa_enabled? %>
+          <span class="label label-success">Enabled</span>
+        <% else %>
+          <span class="label label-warning">Not enabled</span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

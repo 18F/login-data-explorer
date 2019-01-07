@@ -6,11 +6,10 @@ class AuthController < ApplicationController
     if admin.present?
       admin.update!(uuid: admin_params['uuid'])
       sign_in admin
-      redirect_to blazer_url
     else
       flash[:alert] = 'You are not authorized to access the admin console'
-      redirect_to root_url
     end
+    redirect_to root_url
   end
 
   def admin_params

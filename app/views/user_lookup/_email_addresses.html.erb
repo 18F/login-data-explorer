@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <tr>
+    <th>Email Address</th>
+    <th>Confirmed</th>
+  </tr>
+  <% @decorated_user.email_addresses.each do |email_address| %>
+    <tr>
+      <td><%= email_address.email %></td>
+      <td>
+        <% if email_address.confirmed? %>
+          <span class="label label-success">Confirmed</span>
+        <% else %>
+          <span class="label label-warning">Not confirmed</span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
