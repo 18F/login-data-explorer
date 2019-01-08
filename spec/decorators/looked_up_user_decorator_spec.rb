@@ -28,4 +28,18 @@ describe LookedUpUserDecorator do
       it { expect(subject.totp_enabled?).to eq(false) }
     end
   end
+
+  describe '#recent_events' do
+    it 'shows the most recent 50 events' do
+      create_list(:idp_event, 25, user: user, created_at: DateTime.new(2019, 01, 03))
+      create_list(:idp_event, 25, user: user, created_at: DateTime.new(2019, 01, 02))
+      create_list(:idp_event, 25, user: user, created_at: DateTime.new(2019, 01, 01))
+
+      events = subject.recent_events
+
+      expect(events.length).to eq(50)
+      expect(events.first.created_at).to eq(DateTime.new(2019, 01, 03))
+      expect(events.last.created_at).to eq(DateTime.new(2019, 01, 02))
+    end
+  end
 end

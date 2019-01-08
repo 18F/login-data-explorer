@@ -20,5 +20,13 @@ module Idp
     }
 
     belongs_to :user
+
+    def event_name
+      event_type&.humanize
+    end
+
+    def date
+      created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p')
+    end
   end
 end

@@ -15,4 +15,8 @@ class LookedUpUserDecorator
   def totp_enabled?
     user.encrypted_otp_secret_key.present?
   end
+
+  def recent_events
+    user.events.order(created_at: :desc).limit(50)
+  end
 end

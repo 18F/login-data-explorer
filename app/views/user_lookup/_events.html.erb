@@ -1,0 +1,12 @@
+<table class="table table-striped">
+  <tr>
+    <th>Event name</th>
+    <th>Date</th>
+  </tr>
+  <% @decorated_user.recent_events.each do |event| %>
+    <tr>
+      <td><%= event.event_name %></td>
+      <td><%= event.date %></td>
+    </tr>
+  <% end %>
+</table>
