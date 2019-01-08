@@ -1,3 +1,3 @@
 class Admin < ApplicationRecord
-  devise :trackable
+  devise :trackable, :timeoutable
 end
