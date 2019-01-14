@@ -74,7 +74,7 @@ This will also automatically create a new `master.key`
 
 ## Running the app
 ```console
-rails s -p 8080
+foreman start -p 8080
 ```
 
 To access the page where you can look up a user by their email address, visit:
