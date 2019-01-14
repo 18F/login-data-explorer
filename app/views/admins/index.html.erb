@@ -1,0 +1,20 @@
+<h2>Admins</h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>Email</th>
+    <th>Signed in</th>
+    <th>Actions</th>
+  </tr>
+  <% @admins.each do |admin| %>
+    <tr>
+      <td><%= admin.email %></td>
+      <td><%= admin.uuid.present? %></td>
+      <td>
+        <%= button_to 'Delete', admin_path(admin), class: 'btn btn-danger', method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New admin', new_admin_path, class: 'btn btn-primary' %>

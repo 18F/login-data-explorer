@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   #get 'email_fingerprint' => 'email_fingerprint#index'
   #post 'email_fingerprint' => 'email_fingerprint#create'
 
+  # Manage admins
+  get '/admins/new' => 'admins#new', as: :new_admin
+  post '/admins' => 'admins#create'
+  get '/admins' => 'admins#index'
+  delete '/admins/:id' => 'admins#destroy', as: :admin
+
   # Sign in
   get '/auth/logindotgov/callback', to: 'auth#new'
   delete '/auth/sign_out', to: 'auth#destroy'

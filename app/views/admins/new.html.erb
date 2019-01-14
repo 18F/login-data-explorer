@@ -1,0 +1,13 @@
+<h2>New Admin</h2>
+
+<% @create_admin_form.errors.full_messages.each do |error| %>
+  <p class="alert alert-warning"><%= error %></p>
+<% end %>
+
+<%= form_for @create_admin_form, url: admins_path, method: :post do |f| %>
+  <div class='form-group'>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+  <%= f.submit 'Create', class: 'btn btn-primary' %>
+<% end %>
